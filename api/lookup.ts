@@ -1,4 +1,3 @@
-import type { VercelRequest, VercelResponse } from "@vercel/node";
 import { lookupDonationByCode } from "./_lib/lookup";
 
 type RateLimitEntry = {
@@ -19,15 +18,26 @@ if (!globalRateLimitStore.__sblRateLimit) {
 
 const rateLimit = globalRateLimitStore.__sblRateLimit;
 
-function getClientIp(req: VercelRequest): string {
-  const xff = req.headers["x-forwarded-for"];
+type ApiRequest = {
+  method?: string;
+  query?: Record<string, unknown>;
+  headers?: Record<string, string | string[] | undefined>;
+  socket?: { remoteAddress?: string };
+};
+
+type ApiResponse = {
+  status: (code: number) => { json: (body: unknown) => void };
+};
+
+function getClientIp(req: ApiRequest): string {
+  const xff = req.headers?.["x-forwarded-for"];
   if (Array.isArray(xff) && xff.length > 0) {
     return String(xff[0]).split(",")[0].trim();
   }
   if (typeof xff === "string" && xff.trim()) {
     return xff.split(",")[0].trim();
   }
-  return req.socket.remoteAddress || "unknown";
+  return req.socket?.remoteAddress || "unknown";
 }
 
 function isRateLimited(ip: string): boolean {
@@ -45,7 +55,7 @@ function isRateLimited(ip: string): boolean {
   return false;
 }
 
-export default async function handler(req: VercelRequest, res: VercelResponse) {
+export default async function handler(req: ApiRequest, res: ApiResponse) {
   if (req.method !== "GET") {
     return res.status(405).json({ ok: false, message: "Method not allowed.", records: [] });
   }
@@ -54,7 +64,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     return res.status(429).json({ ok: false, message: "Too many requests. Please try again later.", records: [] });
   }
 
-  const code = String(req.query.code || "").trim();
+  const code = String(req.query?.code || "").trim();
   if (!code) {
     return res.status(400).json({ ok: false, message: "Missing donation code.", records: [] });
   }
