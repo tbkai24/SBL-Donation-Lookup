@@ -5,15 +5,15 @@ Vercel-ready **Vite + React + TypeScript** app with serverless API using either 
 ## Stack
 
 - Frontend: Vite + React (`src/`)
-- Backend: Vercel Functions in TypeScript (`api/`)
+- Backend: Vercel Functions in Node.js (`api/`)
 - Data source: Google Apps Script (private sheets) or public Google Sheets
 
 ## Project Structure
 
 - `src/` - React UI
-- `api/lookup.ts` - donation lookup endpoint
-- `api/health.ts` - health check endpoint
-- `api/_lib/lookup.ts` - Google Sheets lookup logic
+- `api/lookup.js` - donation lookup endpoint
+- `api/health.js` - health check endpoint
+- `api/_lib/lookup.js` - Google Sheets lookup logic
 - `vercel.json` - Vercel build/output + SPA rewrites
 
 ## Environment Variables
@@ -57,10 +57,10 @@ npm install
 npm run dev
 ```
 
-If you also want local API behavior exactly like Vercel functions:
+If you only want frontend Vite dev server:
 
 ```bash
-npm run vercel:dev
+npm run dev:vite
 ```
 
 ## Notes
