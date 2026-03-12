@@ -158,11 +158,6 @@ export default function App() {
       <footer className="footer">
         <div className="footer-inner">
           <div className="footer-meta">
-            <img
-              className="footer-logo"
-              src="https://pbs.twimg.com/profile_images/1895433493825638400/Q5VzuIET_400x400.jpg"
-              alt="Solid Block Link Logo"
-            />
             <p className="footer-title">Connect with Solid Block Link</p>
             <div className="social-icons">
               <a href="https://www.facebook.com/share/1DeAu2zLML/" target="_blank" rel="noreferrer">

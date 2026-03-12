@@ -155,22 +155,14 @@ button {
 .footer {
   border-top: 1px solid rgba(196, 157, 77, 0.2);
   color: var(--muted);
-  padding: 20px 0 0;
+  padding: 18px 0 calc(14px + env(safe-area-inset-bottom));
   background: rgba(8, 8, 8, 0.92);
 }
 
 .footer-inner {
   max-width: 980px;
   margin: 0 auto;
-  padding: 0 16px 22px;
-}
-
-.footer-logo {
-  width: 52px;
-  height: 52px;
-  border-radius: 50%;
-  border: 1px solid rgba(217, 177, 95, 0.5);
-  object-fit: cover;
+  padding: 0 16px;
 }
 
 .footer-meta {
@@ -179,16 +171,11 @@ button {
 }
 
 .footer-title {
-  margin: 8px 0 14px;
+  margin: 2px 0 14px;
   text-align: center;
   font-size: 0.86rem;
   letter-spacing: 0.06em;
   text-transform: uppercase;
-}
-
-.footer-meta .footer-logo {
-  display: block;
-  margin: 0 auto;
 }
 
 .social-icons {
@@ -196,7 +183,7 @@ button {
   justify-content: center;
   gap: 14px;
   flex-wrap: wrap;
-  margin-bottom: 4px;
+  margin-bottom: 10px;
 }
 
 .social-icons a {
@@ -222,12 +209,12 @@ button {
 }
 
 .copyright {
-  margin: 0;
+  margin: 12px auto 0;
+  max-width: 980px;
   text-align: center;
   color: #d6cfc2;
-  background: #000;
-  padding: 12px 10px 14px;
-  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  padding: 10px 10px 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
 }
 
 @media (min-width: 640px) {
