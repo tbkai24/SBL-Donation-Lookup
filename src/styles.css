@@ -155,8 +155,78 @@ button {
 .footer {
   border-top: 1px solid rgba(196, 157, 77, 0.25);
   color: var(--muted);
+  padding: 18px 12px 24px;
+  background: rgba(11, 10, 8, 0.6);
+}
+
+.footer-inner {
+  max-width: 760px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+}
+
+.footer-logo {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  border: 1px solid rgba(217, 177, 95, 0.6);
+  object-fit: cover;
+}
+
+.footer-meta {
+  width: 100%;
+}
+
+.footer-title {
+  margin: 0 0 10px;
   text-align: center;
-  padding: 14px 12px 18px;
+  font-size: 0.9rem;
+  letter-spacing: 0.04em;
+}
+
+.social-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 8px;
+}
+
+.social-grid a {
+  color: var(--text);
+  text-decoration: none;
+  border: 1px solid rgba(217, 177, 95, 0.26);
+  background: rgba(24, 21, 16, 0.75);
+  border-radius: 10px;
+  padding: 9px 10px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.9rem;
+}
+
+.social-grid a:hover {
+  border-color: rgba(217, 177, 95, 0.5);
+  background: rgba(42, 33, 21, 0.8);
+}
+
+.social-badge {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(130deg, #c49949, #7f602d);
+  color: #120d05;
+  font-weight: 700;
+  font-size: 0.72rem;
+}
+
+.copyright {
+  margin: 12px 0 0;
+  text-align: center;
 }
 
 @media (min-width: 640px) {
@@ -173,5 +243,8 @@ button {
     width: 104px;
     height: 104px;
   }
-}
 
+  .social-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}

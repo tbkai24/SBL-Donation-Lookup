@@ -153,7 +153,39 @@ export default function App() {
       </main>
 
       <footer className="footer">
-        <p>&copy; {year} Solid Block Link</p>
+        <div className="footer-inner">
+          <img
+            className="footer-logo"
+            src="https://pbs.twimg.com/profile_images/1895433493825638400/Q5VzuIET_400x400.jpg"
+            alt="Solid Block Link Logo"
+          />
+          <div className="footer-meta">
+            <p className="footer-title">Connect with Solid Block Link</p>
+            <div className="social-grid">
+              <a href="https://www.facebook.com/share/1DeAu2zLML/" target="_blank" rel="noreferrer">
+                <span className="social-badge">f</span>
+                <span>SBL FB Page</span>
+              </a>
+              <a href="https://x.com/SB19SBLink" target="_blank" rel="noreferrer">
+                <span className="social-badge">X</span>
+                <span>SBL X (Twitter)</span>
+              </a>
+              <a href="https://www.instagram.com/solidblocklinkforsb19?igsh=NjRweHhkbGpjcjdw" target="_blank" rel="noreferrer">
+                <span className="social-badge">IG</span>
+                <span>SBL IG</span>
+              </a>
+              <a href="https://www.threads.com/@solidblocklinkforsb19" target="_blank" rel="noreferrer">
+                <span className="social-badge">Th</span>
+                <span>SBL Threads</span>
+              </a>
+              <a href="https://www.tiktok.com/@solidblocklinkph?_r=1&_t=ZS-94ayZHYE3iD" target="_blank" rel="noreferrer">
+                <span className="social-badge">TT</span>
+                <span>SBL Tiktok</span>
+              </a>
+            </div>
+            <p className="copyright">&copy; {year} Solid Block Link</p>
+          </div>
+        </div>
       </footer>
     </>
   );
